@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-between m-3">
+    <h4>Contact</h4>
+
+    <button mat-button color="primary" (click)="onClose()">
+        <mat-icon>cancel</mat-icon>
+    </button>
+</div>
+
+<div style="overflow: auto; height: 450px;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+
+        <div hidden class="mt-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Id </span>
+            </div>
+            <input type="text" name="id" readonly="readonly" class="form-control" #id="ngModel"
+                [(ngModel)]="api.formData.id">
+        </div>
+
+        <div class="mt-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name </span>
+            </div>
+            <input type="text" name="name" id="" readonly="readonly" class="form-control" #name="ngModel"
+                [(ngModel)]="api.formData.name">
+        </div>
+
+        <div class="mt-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Phone Number </span>
+            </div>
+            <input type="text" name="phoneNum" readonly="readonly" class="form-control" #phoneNum="ngModel"
+                [(ngModel)]="api.formData.phoneNum">
+        </div>
+
+        <div class="mt-3 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Email </span>
+            </div>
+            <input type="email" name="email" readonly="readonly" class="form-control" #email="ngModel"
+                [(ngModel)]="api.formData.email">
+        </div>
+
+    </form>
+</div>
