@@ -1,4 +1,4 @@
-import { ApiService } from './../../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatSnackBarModule } from '@angular/material'
 import { NgForm } from '@angular/forms';

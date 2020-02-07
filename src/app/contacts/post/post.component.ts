@@ -1,4 +1,4 @@
-import { ApiService } from './../../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MatSnackBarModule } from '@angular/material'
 import { NgForm } from '@angular/forms';
@@ -33,7 +33,7 @@ export class PostComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    
+
     this.api.addContact(form.value).subscribe(res => {
       this.resetForm(form);
       this.snackBar.open(res.toString(), '', {
@@ -49,6 +49,6 @@ export class PostComponent implements OnInit {
   onClose() {
 
     this.dialogBox.close();
-    this.api.filter('Register click');
+    // this.api.filter('Register click');
   }
 }

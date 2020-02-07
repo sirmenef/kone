@@ -1,6 +1,6 @@
 import { GetComponent } from './get/get.component';
 import { PostComponent } from './post/post.component';
-import { ApiService } from './../services/api.service';
+import { ApiService } from '../services/api.service';
 import { Contact } from './../models/contact-model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {

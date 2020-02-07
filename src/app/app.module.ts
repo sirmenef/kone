@@ -1,3 +1,7 @@
+import { RegisterComponent } from './register/register.component';
+import { ErrorInterceptor } from './services/error.interceptor';
+import { JwtInterceptor } from './services/jwtInterceptor';
+import { RouterModule } from '@angular/router';
 import { ApiService } from './services/api.service';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,11 +16,13 @@ import { PostComponent } from './contacts/post/post.component';
 import { GetComponent } from './contacts/get/get.component';
 import { EditComponent } from './contacts/edit/edit.component';
 import { MatIconModule, MatDialogModule, MatTableModule, MatSortModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { BulkComponent } from './bulk/bulk.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccordionModule } from 'primeng/accordion';
+import { LoginComponent } from './login/login.component';
 //import { MenuItem } from 'primeng/api';
+
+import { AlertComponent } from './_components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,11 @@ import { AccordionModule } from 'primeng/accordion';
     PostComponent,
     GetComponent,
     EditComponent,
-    BulkComponent,
+    LoginComponent,
+    RegisterComponent,
+    AlertComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -41,11 +51,16 @@ import { AccordionModule } from 'primeng/accordion';
     FormsModule,
     MatSnackBarModule,
     //MenuItem,
-    AccordionModule
+    AccordionModule,
+    ReactiveFormsModule,
+    RouterModule,
 
 
   ],
-  providers: [ApiService],
+  providers: [ApiService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
   entryComponents: [
     PostComponent,
     EditComponent,

@@ -1,24 +1,18 @@
-<div class="container">
-  <nav class="navbar navbar-expand-sm bg-light navdark-dark">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <button 
-        routerLink=""
-        class="m-1 btn btn-light btn-outline-primary" button label="listContact">
-          Contacts
-        </button>
-      </li>
-      <!-- <li class="nav-item">
-        <button class="m-1 btn btn-light btn-outline-primary" button label="createContact"
-          (click)="listContact=false; createContact=true;">
-          Add Multiple Contacts
-        </button>
-      </li> -->
-    </ul>
-  </nav>
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+    <a class="nav-item nav-link" routerLink="/">Home</a>
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav>
 
-  <!-- <app-contacts *ngIf="listContact"></app-contacts> -->
-  <!-- <app-bulk *ngIf="createContact"></app-bulk> -->
-
+<!-- main content container -->
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 offset-sm-2">
+        <alert></alert>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>
-<router-outlet></router-outlet>
